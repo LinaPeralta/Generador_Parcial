@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.gson.Gson;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -24,9 +26,13 @@ public class MainActivity extends AppCompatActivity {
     private Button verdeBtn;
     private Button azulBtn;
     private EditText nombreTxt;
+    private String nombre;
     private EditText cantidadTxt;
+    private int cantidad;
     private EditText posxTxt;
+    private int posX;
     private EditText posyTxt;
+    private int posY;
 
     private String json;
 
@@ -34,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     BufferedWriter bfw;
 
     Dato datos;
-   // Gson gson;
+    Gson gson;
 
 
     @Override
@@ -79,30 +85,46 @@ public class MainActivity extends AppCompatActivity {
         ).start();
 
 
+
+        crearBtn.setOnClickListener((view)->{
+
+                    nombre = nombreTxt.getText().toString();
+                    cantidad= Integer.parseInt(cantidadTxt.getText().toString());
+                    posX= Integer.parseInt(posxTxt.getText().toString());
+                    posY= Integer.parseInt(posyTxt.getText().toString());
+
+                });
+
+
+
+
         rojoBtn.setOnClickListener(
                 (v) -> {
-                   // datos.setNombre();
-                   // datos.setMov(20);
-                   // json = gson.toJson(datos);
-                    //enviarMensaje(json);
+                    datos.setColor("rojo");
+                    datos.setPosX(posX);
+                    datos.setPosY(posY);
+                    json = gson.toJson(datos);
+                    enviarMensaje(json);
                 }
         );
 
         verdeBtn.setOnClickListener(
                 (v) -> {
-                    // datos.setMovimiento("up");
-                    // datos.setMov(20);
-                    // json = gson.toJson(datos);
-                    //enviarMensaje(json);
+                    datos.setColor("verde");
+                    datos.setPosX(posX);
+                    datos.setPosY(posY);
+                    json = gson.toJson(datos);
+                    enviarMensaje(json);
                 }
         );
 
         azulBtn.setOnClickListener(
                 (v) -> {
-                    // datos.setMovimiento("up");
-                    // datos.setMov(20);
-                    // json = gson.toJson(datos);
-                    //enviarMensaje(json);
+                    datos.setColor("azul");
+                    datos.setPosX(posX);
+                    datos.setPosY(posY);
+                    json = gson.toJson(datos);
+                    enviarMensaje(json);
                 }
         );
 
