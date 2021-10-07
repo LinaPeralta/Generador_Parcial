@@ -16,6 +16,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
+import java.util.ArrayList;
+
+import model.Dato;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     Dato datos;
     Gson gson;
 
+   // private ArrayList<PVector> posiciones;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +65,7 @@ public class MainActivity extends AppCompatActivity {
         posyTxt = findViewById(R.id.posyTxt);
 
         datos =  new Dato();
-       // gson = new Gson();
-
+        gson = new Gson();
 
         new Thread(
                 ()->{
@@ -76,6 +80,13 @@ public class MainActivity extends AppCompatActivity {
                         OutputStreamWriter osw =  new OutputStreamWriter(os);
                         bfw= new BufferedWriter(osw);
 
+                      /*  while(true){
+                            System.out.println("Esperando...");
+                            String line = bfr.readLine();
+                            System.out.println("Recibido...");
+                            System.out.println("Recibido..."+bfr);
+
+                        }*/
 
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -85,48 +96,78 @@ public class MainActivity extends AppCompatActivity {
         ).start();
 
 
-
-        crearBtn.setOnClickListener((view)->{
-
-                    nombre = nombreTxt.getText().toString();
-                    cantidad= Integer.parseInt(cantidadTxt.getText().toString());
-                    posX= Integer.parseInt(posxTxt.getText().toString());
-                    posY= Integer.parseInt(posyTxt.getText().toString());
-
-                });
-
-
-
-
         rojoBtn.setOnClickListener(
                 (v) -> {
-                    datos.setColor("rojo");
-                    datos.setPosX(posX);
-                    datos.setPosY(posY);
-                    json = gson.toJson(datos);
-                    enviarMensaje(json);
+                    int c1 = 122;
+                    int c2 = 9;
+                    int c3 = 9;
+//
+                    datos.setR(c1);
+                    datos.setG(c2);
+                    datos.setB(c3);
+                   // datos.setPosX(posX);
+                    //datos.setPosY(posY);
+                    // json = gson.toJson(datos);
+                    // enviarMensaje(json);
                 }
         );
 
         verdeBtn.setOnClickListener(
                 (v) -> {
-                    datos.setColor("verde");
-                    datos.setPosX(posX);
-                    datos.setPosY(posY);
-                    json = gson.toJson(datos);
-                    enviarMensaje(json);
+                    int c1 = 71;
+                    int c2 = 88;
+                    int c3 = 23;
+
+                    datos.setR(c1);
+                    datos.setG(c2);
+                    datos.setB(c3);
+
+                   // datos.setPosX(posX);
+                   // datos.setPosY(posY);
+                    // json = gson.toJson(datos);
+                    // enviarMensaje(json);
                 }
         );
 
         azulBtn.setOnClickListener(
                 (v) -> {
-                    datos.setColor("azul");
-                    datos.setPosX(posX);
-                    datos.setPosY(posY);
-                    json = gson.toJson(datos);
-                    enviarMensaje(json);
+                    int c1 = 50;
+                    int c2 = 89;
+                    int c3 = 135;
+
+                    datos.setR(c1);
+                    datos.setG(c2);
+                    datos.setB(c3);
+
+
+                   // datos.setPosX(posX);
+                   // datos.setPosY(posY);
+                   // json = gson.toJson(datos);
+                   //enviarMensaje(json);
                 }
         );
+
+        crearBtn.setOnClickListener((view)->{
+
+            nombre = nombreTxt.getText().toString();
+            cantidad= Integer.parseInt(cantidadTxt.getText().toString());
+            posX= Integer.parseInt(posxTxt.getText().toString());
+            posY= Integer.parseInt(posyTxt.getText().toString());
+
+           // enviarMensaje("holaaaaa");
+           //String posX = posxTxt.getText().toString();
+          //  String posY = posyTxt.getText().toString();
+           // enviarMensaje(posX+","+posY);
+           json = gson.toJson(datos);
+           enviarMensaje(json);
+
+        });
+
+        borrarBtn.setOnClickListener((view)->{
+
+
+
+        });
 
 
     }

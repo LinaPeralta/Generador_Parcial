@@ -1,8 +1,8 @@
-package com.example.generador;
+package model;
 
 public class Dato {
 
-    private String color;
+    private int r,g,b;
     private String nombre;
     private int cantidad;
     private int posX,posY;
@@ -10,20 +10,38 @@ public class Dato {
     public Dato() {
     }
 
-    public Dato(String color, String nombre, int cantidad, int posX, int posY) {
-        this.color = color;
+    public Dato(int r, int g, int b, String nombre, int cantidad, int posX, int posY) {
+        this.r = r;
+        this.g = g;
+        this.b = b;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.posX = posX;
         this.posY = posY;
     }
 
-    public String getColor() {
-        return color;
+    public int getR() {
+        return r;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setR(int r) {
+        this.r = r;
+    }
+
+    public int getG() {
+        return g;
+    }
+
+    public void setG(int g) {
+        this.g = g;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public void setB(int b) {
+        this.b = b;
     }
 
     public String getNombre() {
