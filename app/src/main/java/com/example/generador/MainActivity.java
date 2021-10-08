@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private int posX;
     private EditText posyTxt;
     private int posY;
+    private int r,g,b;
+
 
     private String json;
 
@@ -98,29 +100,26 @@ public class MainActivity extends AppCompatActivity {
 
         rojoBtn.setOnClickListener(
                 (v) -> {
-                    int c1 = 122;
-                    int c2 = 9;
-                    int c3 = 9;
+                    r = 122;
+                    g = 9;
+                    b= 9;
 //
-                    datos.setR(c1);
-                    datos.setG(c2);
-                    datos.setB(c3);
-                   // datos.setPosX(posX);
-                    //datos.setPosY(posY);
-                    // json = gson.toJson(datos);
-                    // enviarMensaje(json);
+                   // datos.setR(c1);
+                  //  datos.setG(c2);
+                   // datos.setB(c3);
+
                 }
         );
 
         verdeBtn.setOnClickListener(
                 (v) -> {
-                    int c1 = 71;
-                    int c2 = 88;
-                    int c3 = 23;
+                    r = 71;
+                    g = 88;
+                    b = 23;
 
-                    datos.setR(c1);
-                    datos.setG(c2);
-                    datos.setB(c3);
+                   // datos.setR(c1);
+                   // datos.setG(c2);
+                  //  datos.setB(c3);
 
                    // datos.setPosX(posX);
                    // datos.setPosY(posY);
@@ -131,13 +130,13 @@ public class MainActivity extends AppCompatActivity {
 
         azulBtn.setOnClickListener(
                 (v) -> {
-                    int c1 = 50;
-                    int c2 = 89;
-                    int c3 = 135;
+                    r = 50;
+                    g = 89;
+                    b = 135;
 
-                    datos.setR(c1);
-                    datos.setG(c2);
-                    datos.setB(c3);
+                   // datos.setR(c1);
+                   // datos.setG(c2);
+                   // datos.setB(c3);
 
 
                    // datos.setPosX(posX);
@@ -154,10 +153,8 @@ public class MainActivity extends AppCompatActivity {
             posX= Integer.parseInt(posxTxt.getText().toString());
             posY= Integer.parseInt(posyTxt.getText().toString());
 
-           // enviarMensaje("holaaaaa");
-           //String posX = posxTxt.getText().toString();
-          //  String posY = posyTxt.getText().toString();
-           // enviarMensaje(posX+","+posY);
+            Dato datos = new Dato (r, g, b, nombre,cantidad,posX,posY);
+
            json = gson.toJson(datos);
            enviarMensaje(json);
 
