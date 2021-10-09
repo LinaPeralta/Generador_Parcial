@@ -3,6 +3,7 @@ package model;
 public class Dato {
 
     private int r,g,b;
+    private boolean click;
     private String nombre;
     private int cantidad;
     private int posX,posY;
@@ -18,6 +19,7 @@ public class Dato {
         this.cantidad = cantidad;
         this.posX = posX;
         this.posY = posY;
+        this.click = click;
     }
 
     public int getR() {
@@ -74,5 +76,13 @@ public class Dato {
 
     public void setPosY(int posY) {
         this.posY = posY;
+    }
+
+    public boolean isClick() {
+        return click;
+    }
+
+    public void setClick(boolean click) {
+        this.click = click;
     }
 }

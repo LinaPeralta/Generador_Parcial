@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText posyTxt;
     private int posY;
     private int r,g,b;
+    private boolean click=false;
 
 
     private String json;
@@ -82,13 +83,6 @@ public class MainActivity extends AppCompatActivity {
                         OutputStreamWriter osw =  new OutputStreamWriter(os);
                         bfw= new BufferedWriter(osw);
 
-                      /*  while(true){
-                            System.out.println("Esperando...");
-                            String line = bfr.readLine();
-                            System.out.println("Recibido...");
-                            System.out.println("Recibido..."+bfr);
-
-                        }*/
 
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -103,11 +97,6 @@ public class MainActivity extends AppCompatActivity {
                     r = 122;
                     g = 9;
                     b= 9;
-//
-                   // datos.setR(c1);
-                  //  datos.setG(c2);
-                   // datos.setB(c3);
-
                 }
         );
 
@@ -116,15 +105,6 @@ public class MainActivity extends AppCompatActivity {
                     r = 71;
                     g = 88;
                     b = 23;
-
-                   // datos.setR(c1);
-                   // datos.setG(c2);
-                  //  datos.setB(c3);
-
-                   // datos.setPosX(posX);
-                   // datos.setPosY(posY);
-                    // json = gson.toJson(datos);
-                    // enviarMensaje(json);
                 }
         );
 
@@ -133,16 +113,6 @@ public class MainActivity extends AppCompatActivity {
                     r = 50;
                     g = 89;
                     b = 135;
-
-                   // datos.setR(c1);
-                   // datos.setG(c2);
-                   // datos.setB(c3);
-
-
-                   // datos.setPosX(posX);
-                   // datos.setPosY(posY);
-                   // json = gson.toJson(datos);
-                   //enviarMensaje(json);
                 }
         );
 
@@ -158,12 +128,18 @@ public class MainActivity extends AppCompatActivity {
            json = gson.toJson(datos);
            enviarMensaje(json);
 
+            nombreTxt.getText().clear();
+            cantidadTxt.getText().clear();
+            posxTxt.getText().clear();
+            posyTxt.getText().clear();
+
+
         });
 
         borrarBtn.setOnClickListener((view)->{
-
-
-
+            click=true;
+            json = gson.toJson(datos);
+            enviarMensaje(json);
         });
 
 
