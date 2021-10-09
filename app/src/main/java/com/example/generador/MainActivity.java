@@ -48,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
     Dato datos;
     Gson gson;
 
-   // private ArrayList<PVector> posiciones;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
 
         datos =  new Dato();
         gson = new Gson();
+        click = false;
+
 
         new Thread(
                 ()->{
@@ -123,6 +123,8 @@ public class MainActivity extends AppCompatActivity {
             posX= Integer.parseInt(posxTxt.getText().toString());
             posY= Integer.parseInt(posyTxt.getText().toString());
 
+            click=false;
+
             Dato datos = new Dato (r, g, b,click, nombre,cantidad,posX,posY);
 
            json = gson.toJson(datos);
@@ -132,16 +134,24 @@ public class MainActivity extends AppCompatActivity {
 
         borrarBtn.setOnClickListener((view)->{
 
-            click=true;
+            nombre = nombreTxt.getText().toString();
+            cantidad= Integer.parseInt(cantidadTxt.getText().toString());
+            posX= Integer.parseInt(posxTxt.getText().toString());
+            posY= Integer.parseInt(posyTxt.getText().toString());
 
-            //se limpian los campos de texto
             nombreTxt.getText().clear();
             cantidadTxt.getText().clear();
             posxTxt.getText().clear();
             posyTxt.getText().clear();
 
+            click=true;
+
+            Dato datos = new Dato (r, g, b,click, nombre,cantidad,posX,posY);
+
             json = gson.toJson(datos);
             enviarMensaje(json);
+
+
         });
 
 
