@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText posyTxt;
     private int posY;
     private int r,g,b;
-    private boolean click=false;
+    private boolean click;
 
 
     private String json;
@@ -123,21 +123,23 @@ public class MainActivity extends AppCompatActivity {
             posX= Integer.parseInt(posxTxt.getText().toString());
             posY= Integer.parseInt(posyTxt.getText().toString());
 
-            Dato datos = new Dato (r, g, b, nombre,cantidad,posX,posY);
+            Dato datos = new Dato (r, g, b,click, nombre,cantidad,posX,posY);
 
            json = gson.toJson(datos);
            enviarMensaje(json);
 
+        });
+
+        borrarBtn.setOnClickListener((view)->{
+
+            click=true;
+
+            //se limpian los campos de texto
             nombreTxt.getText().clear();
             cantidadTxt.getText().clear();
             posxTxt.getText().clear();
             posyTxt.getText().clear();
 
-
-        });
-
-        borrarBtn.setOnClickListener((view)->{
-            click=true;
             json = gson.toJson(datos);
             enviarMensaje(json);
         });

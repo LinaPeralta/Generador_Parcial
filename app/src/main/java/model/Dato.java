@@ -11,15 +11,15 @@ public class Dato {
     public Dato() {
     }
 
-    public Dato(int r, int g, int b, String nombre, int cantidad, int posX, int posY) {
+    public Dato(int r, int g, int b, boolean click, String nombre, int cantidad, int posX, int posY) {
         this.r = r;
         this.g = g;
         this.b = b;
+        this.click = click;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.posX = posX;
         this.posY = posY;
-        this.click = click;
     }
 
     public int getR() {
@@ -44,6 +44,14 @@ public class Dato {
 
     public void setB(int b) {
         this.b = b;
+    }
+
+    public boolean isClick() {
+        return click;
+    }
+
+    public void setClick(boolean click) {
+        this.click = click;
     }
 
     public String getNombre() {
@@ -76,13 +84,5 @@ public class Dato {
 
     public void setPosY(int posY) {
         this.posY = posY;
-    }
-
-    public boolean isClick() {
-        return click;
-    }
-
-    public void setClick(boolean click) {
-        this.click = click;
     }
 }
